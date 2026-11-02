@@ -16,8 +16,8 @@ html,body{margin:0;background:#050c0b;color:var(--ink);font-family:var(--bd);fon
 button,input{font:inherit;color:inherit}button{cursor:pointer}
 :focus-visible{outline:2px solid var(--mint);outline-offset:2px}
 h1,h2,h3,p{margin:0}
-#app{max-width:430px;margin:0 auto;min-height:100vh;background:var(--bg);position:relative;overflow:hidden}
-.scr{position:relative;min-height:100vh;display:flex;flex-direction:column;gap:18px;padding:52px 18px 120px}
+#app{max-width:430px;margin:0 auto;min-height:100vh;min-height:100dvh;background:var(--bg);position:relative;overflow-x:hidden}
+.scr{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;gap:18px;padding:calc(52px + env(safe-area-inset-top,0px)) 18px calc(120px + env(safe-area-inset-bottom,0px))}
 .beans{position:absolute;left:0;right:0;top:300px;bottom:0;overflow:hidden;pointer-events:none;z-index:0}
 .bean{position:absolute;top:-60px;opacity:0;animation:fall linear infinite}
 @keyframes fall{0%{transform:translate3d(0,0,0) rotate(0);opacity:0}10%{opacity:.26}50%{transform:translate3d(14px,260px,0) rotate(170deg);opacity:.26}90%{opacity:.26}100%{transform:translate3d(-10px,520px,0) rotate(360deg);opacity:0}}
@@ -66,12 +66,31 @@ h1,h2,h3,p{margin:0}
 .step button{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#0E1F1C}
 .step .q{min-width:18px;text-align:center;font-weight:500;color:#0E1F1C}
 .det{display:flex;flex-direction:column;gap:12px;padding:12px 2px 4px}
+.detph{width:100%;height:190px;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#0E1F1C;font-family:var(--disp);font-size:66px;line-height:1}
+.detph img{width:100%;height:100%;object-fit:cover}
 .optg{display:flex;flex-direction:column;gap:8px}
 .optg .lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
 .opt{height:42px;padding:0 14px;border-radius:21px;border:0;font-size:13px;background:var(--surface2);color:var(--ink)}
 .opt.on{background:var(--mint);color:#0E1F1C;font-weight:500}
 .cta{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:27px;border:0;background:var(--mint);color:#0E1F1C;font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;width:100%;text-decoration:none}
+.welcome{padding:0 0 calc(8px + env(safe-area-inset-bottom,0px));gap:0;min-height:100vh;min-height:100dvh}
+.whero{position:relative;flex:0 0 auto;height:clamp(330px,50vh,430px);display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 30%,#5FE3C8 0%,#3F9A8A 28%,#1E4A42 75%,#0E1F1C 100%)}
+.whero .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,31,28,.3) 0%,rgba(14,31,28,0) 28%,rgba(14,31,28,0) 50%,rgba(14,31,28,.85) 82%,#0E1F1C 100%)}
+.wtopbar{position:absolute;left:18px;right:18px;top:calc(28px + env(safe-area-inset-top,0px));display:flex;justify-content:space-between;z-index:2}
+.wchip{display:flex;align-items:center;height:36px;padding:0 14px;border-radius:18px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);background:var(--surface)}
+.welcome .beans{top:400px}
+.wcol{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:-96px;padding:0 28px;text-align:center}
+.wbadge{display:flex;align-items:center;justify-content:center;width:104px;height:104px;border-radius:50%;background:#FFF6EA;box-shadow:0 0 0 4px #0E1F1C,0 0 0 6px var(--mint),0 18px 40px rgba(0,0,0,.45)}
+.wname2{margin:6px 0 0;font-family:var(--disp);font-weight:500;font-size:40px;line-height:1;color:var(--ink)}
+.wsub2{margin:0;font-size:15px;color:var(--mint)}
+.wtag2{margin:6px 0 0;max-width:280px;font-family:var(--disp);font-style:italic;font-weight:500;font-size:20px;line-height:1.35;color:rgba(255,246,234,.72)}
+.wbot{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;margin-top:auto;padding:0 18px 28px}
+.wmenu{display:flex;align-items:center;justify-content:center;gap:12px;height:58px;border-radius:29px;background:var(--mint);color:#0E1F1C;border:0;font-size:14px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;width:100%}
+.whours{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.whours .hc{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:20px}
+.whours .hc .t{font-size:14px;color:var(--ink)}
+.whours .hc .n{font-size:11px;font-weight:300;color:rgba(255,246,234,.6)}
 .bigct{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;align-self:center;width:260px;height:80px;border-radius:40px;border:0;background:#7A4B32;color:var(--ink);text-decoration:none;position:relative;z-index:1}
 .bigct span{font-size:14px;font-weight:500;letter-spacing:.03em;text-align:center}
 .lines{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
@@ -101,12 +120,12 @@ h1,h2,h3,p{margin:0}
 .signup .cs{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted)}
 .signup .cs input{margin-top:2px;width:18px;height:18px;flex:0 0 auto;accent-color:var(--mint)}
 .smsg{font-size:13px;min-height:16px}.smsg.ok{color:var(--mint)}.smsg.bad{color:#FF8A7A}
-.bar{position:fixed;left:50%;transform:translateX(-50%);bottom:22px;width:min(394px,calc(100% - 36px));display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px;padding:0 8px 0 20px;border-radius:30px;border:0;background:var(--mint);color:#0E1F1C;z-index:5;animation:barup .4s cubic-bezier(.16,1,.3,1)}
+.bar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(22px + env(safe-area-inset-bottom,0px));width:min(394px,calc(100% - 36px));display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px;padding:0 8px 0 20px;border-radius:30px;border:0;background:var(--mint);color:#0E1F1C;z-index:5;animation:barup .4s cubic-bezier(.16,1,.3,1)}
 .bar .bl{display:flex;flex-direction:column;align-items:flex-start}
 .bar .bl small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
 .bar .bl b{font-size:15px;font-weight:500}
 .bar .go{display:flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:22px;background:#0E1F1C;color:var(--ink);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
-.center{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:40px 28px}
+.center{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:40px 28px}
 .center .m{width:72px;height:72px}
 .center h2{font-family:var(--disp);font-style:italic;font-weight:500;font-size:30px}
 .center p{color:var(--muted);font-size:14px;max-width:34ch}
@@ -143,7 +162,7 @@ const isLive=o=>o.active&&!(o.endsOn&&o.endsOn<today());
 const params=new URLSearchParams(location.search);
 let MODO=['delivery','local','mesa'].includes(params.get('modo'))?params.get('modo'):'delivery';
 let sb=null,items=[],offers=[],config={},loaded=false,err=null;
-let st={view:'home',cat:null,open:null,sel:{},cart:[],mode:'delivery',mesa:'',name:'',address:'',note:'',email:'',consent:false,smsg:'',_f:null};
+let st={view:'welcome',cat:null,open:null,sel:{},cart:[],mode:'delivery',mesa:'',name:'',address:'',note:'',_f:null};
 const app=document.getElementById('app');
 
 function greet(){const h=new Date().getHours();return h<12?'Buenos días.':h<18?'Buenas tardes.':'Buenas noches.'}
@@ -158,6 +177,7 @@ const count=()=>st.cart.reduce((a,l)=>a+l.qty,0);
 const total=()=>st.cart.reduce((a,l)=>a+l.unit*l.qty,0);
 const bdg=b=>b?`<span class="badge" style="background:${['Nuevo','Oferta','Temporada'].includes(b)?'var(--orange)':'var(--mint)'}">${esc(b)}</span>`:'';
 const photo=(it,cls)=>{const col=CCOL[it.cat]||'#5FE3C8';return it.photo?`<span class="ph ${cls||''}"><img src="${esc(it.photo)}" alt="${esc(it.name)}" loading="lazy"></span>`:`<span class="ph ${cls||''}" style="background:linear-gradient(145deg,${col},rgba(14,31,28,.5))">${esc((it.name||'?').trim().charAt(0).toUpperCase())}</span>`};
+const bigPhoto=it=>{const col=CCOL[it.cat]||'#5FE3C8';return it.photo?`<div class="detph"><img src="${esc(it.photo)}" alt="${esc(it.name)}" loading="lazy"></div>`:`<div class="detph" style="background:linear-gradient(145deg,${col},rgba(14,31,28,.5))" aria-hidden="true">${esc((it.name||'?').trim().charAt(0).toUpperCase())}</div>`};
 function addLine(it,sel){const key=it.id+'|'+optsLabel(it,sel);const i=st.cart.findIndex(l=>l.key===key);if(i>=0)st.cart[i]={...st.cart[i],qty:st.cart[i].qty+1};else st.cart.push({key,id:it.id,name:it.name,cat:it.cat,unit:priceOf(it,sel),opts:optsLabel(it,sel),qty:1})}
 function waMsg(){const L=[MODO==='mesa'?'*Pedido en el local · Mesa '+(st.mesa||'[mesa]')+'*':'*Pedido · La Baristería*'];st.cart.forEach(l=>L.push(l.qty+'× '+l.name+(l.opts?' ('+l.opts+')':'')+' — '+money(l.unit*l.qty)));L.push('Subtotal: '+money(total()));if(MODO==='delivery'){L.push('Entrega: Delivery'+(st.address?' · '+st.address:''));L.push('Ubicación exacta: la comparto por aquí')}if(MODO==='mesa'){if(st.name)L.push('Nombre: '+st.name)}else L.push('Nombre: '+(st.name||'[nombre]'));if(st.note)L.push('Nota: '+st.note);return L.join('\n')}
 
@@ -165,7 +185,7 @@ function render(){
   if(err){app.innerHTML=`<div class="center"><span class="m">${LOGO}</span><h2>Menú no disponible</h2><p>${esc(err)}</p></div>`;return}
   if(!loaded){app.innerHTML=`<div class="center"><span class="m">${LOGO}</span><p>Cargando el menú…</p></div>`;return}
   if(!items.length){app.innerHTML=`<div class="center"><span class="m">${LOGO}</span><h2>Menú en preparación</h2><p>Vuelve en un momento.</p></div>`;return}
-  const v={home:vHome,cat:vCat,cart:vCart}[st.view]||vHome;
+  const v={welcome:vWelcome,home:vHome,cat:vCat,cart:vCart}[st.view]||vHome;
   let html=v();
   if(count()>0&&st.view!=='cart')html+=barHtml();
   app.innerHTML=html;
@@ -174,9 +194,34 @@ function render(){
 const barHtml=()=>`<button class="bar" data-a="cart"><span class="bl"><small>${count()===1?'1 artículo':count()+' artículos'}</small><b>${money(total())}</b></span><span class="go">${MODO==='local'?'Ver selección':'Ver pedido'} <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
 const hint=()=>MODO==='local'?'Elige lo que quieras y pídeselo a tu mesero.':MODO==='mesa'?'Arma tu pedido y envíalo a la cocina desde tu mesa.':'Elige una categoría y arma tu pedido.';
 const tile=c=>{const col=CCOL[c]||'#5FE3C8';return `<button class="tile rise" style="background:${col}" data-a="cat" data-cat="${esc(c)}"><span class="ph">${IPH}</span><span><b>${esc(c)}</b><br><span class="n">${catItems(c).length} opciones</span></span></button>`};
+function vWelcome(){
+  return `<div class="scr welcome">
+    <div class="whero">
+      <div class="ov" aria-hidden="true"></div>
+      <div class="wtopbar">
+        <span class="wchip rise">Moca · RD</span>
+        ${config.maps?`<a class="icon rise" href="${esc(config.maps)}" target="_blank" rel="noopener" aria-label="Ubicación">${IP}</a>`:`<span class="icon rise">${IP}</span>`}
+      </div>
+    </div>
+    ${beans()}
+    <div class="wcol">
+      <span class="wbadge rise"><svg width="72" height="72" viewBox="0 0 96 96" fill="none" aria-hidden="true"><ellipse cx="48" cy="50" rx="13" ry="19" transform="rotate(-24 48 50)" stroke="#5A3A28" stroke-width="2.2"/><path d="M42 34 C52 43 44 57 54 66" stroke="#5A3A28" stroke-width="2.2" stroke-linecap="round"/><path d="M30 30 C30 20 38 16 44 18 C42 26 38 30 30 30 Z" fill="#5FE3C8"/><path d="M66 30 C66 20 58 16 52 18 C54 26 58 30 66 30 Z" fill="#5FE3C8"/><path d="M28 66 h40 l-4 10 h-32 z" fill="#FF7A45"/></svg></span>
+      <h1 class="wname2 rise">La Baristería</h1>
+      <p class="wsub2 rise">Specialty Coffee &amp; Brunch</p>
+      <p class="wtag2 rise">Café de especialidad, brunch y una mañana que vale la pena alargar.</p>
+    </div>
+    <div class="wbot">
+      <button class="wmenu rise" data-a="menu"><span>Ver el menú</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0E1F1C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="whours">
+        <div class="hc glass rise"><span style="font-size:13px;color:var(--mint)">Lun – Vie</span><span class="t">9:00 AM – 7:30 PM</span><span class="n">Martes cerrado</span></div>
+        <div class="hc glass rise"><span style="font-size:13px;color:var(--orange)">Sáb – Dom</span><span class="t">9:00 AM – 6:00 PM</span><span class="n">Delivery disponible</span></div>
+      </div>
+    </div>
+  </div>`;
+}
 function vHome(){const o=curOffer(),comer=liveCats().filter(c=>CATS.indexOf(c)<6),tomar=liveCats().filter(c=>CATS.indexOf(c)>=6);
   return `<div class="scr">${beans()}<div class="hdr"><div class="logo"><span class="m">${LOGO}</span><b>La Baristería</b></div>${config.maps?`<a class="icon" href="${esc(config.maps)}" target="_blank" rel="noopener" aria-label="Ubicación">${IP}</a>`:`<span class="icon">${IP}</span>`}</div><div><h1 class="title rise">${greet()}</h1><p class="sub rise">${hint()}</p></div>${o?`<button class="offer rise" data-a="offer"><small>${esc(o.discount||'Oferta')}${o.endsOn?' · hasta '+esc(o.endsOn):''}</small><b>${esc(o.title)}</b><small style="letter-spacing:0;text-transform:none;font-size:13px;opacity:.9">${esc(o.text)}</small></button>`:''}${comer.length?`<div class="sechdr"><b>Para comer</b><span>Entradas, waffles, brunch</span></div><div class="grid2">${comer.map(tile).join('')}</div>`:''}${tomar.length?`<div class="sechdr"><b>Para tomar</b><span>Café, té, frozen, cócteles</span></div><div class="grid2">${tomar.map(tile).join('')}</div>`:''}</div>`}
-function itemCard(it){const n=qtyOf(it.id),g=optGroups(it),open=st.open===it.id;let right;if(n>0)right=`<span class="step"><button data-a="dec" data-id="${esc(it.id)}" aria-label="Quitar">${IMI}</button><span class="q">${n}</span><button data-a="inc" data-id="${esc(it.id)}" aria-label="Añadir">${IPL}</button></span>`;else if(g.length)right='';else right=`<button class="add" data-a="quick" data-id="${esc(it.id)}" aria-label="Añadir">${IPL}</button>`;let det='';if(open){const sel=st.sel;det=`<div class="det rise">${g.map(gr=>`<div class="optg"><span class="lbl">${esc(gr.name)}</span><div class="opts">${gr.choices.map(c=>`<button class="opt ${sel[gr.id]===c.id?'on':''}" data-a="opt" data-g="${esc(gr.id)}" data-c="${esc(c.id)}">${esc(c.label)}</button>`).join('')}</div></div>`).join('')}<button class="cta" data-a="addsel" data-id="${esc(it.id)}">${IPL}<span>Añadir · ${money(priceOf(it,sel))}</span></button></div>`}return `<div class="card glass rise"><div class="itop"><button class="open" data-a="toggle" data-id="${esc(it.id)}">${photo(it)}<span class="info"><b>${esc(it.name)}</b>${it.desc?`<p>${esc(it.desc)}</p>`:''}<span class="pr"><span class="price">${money(it.price)}${it.priceMangu!=null&&it.priceMangu!==''?' / '+money(it.priceMangu):''}</span>${bdg(it.badge)}</span></span></button>${right}</div>${det}</div>`}
+function itemCard(it){const n=qtyOf(it.id),g=optGroups(it),open=st.open===it.id;let right;if(n>0)right=`<span class="step"><button data-a="dec" data-id="${esc(it.id)}" aria-label="Quitar">${IMI}</button><span class="q">${n}</span><button data-a="inc" data-id="${esc(it.id)}" aria-label="Añadir">${IPL}</button></span>`;else if(g.length)right='';else right=`<button class="add" data-a="quick" data-id="${esc(it.id)}" aria-label="Añadir">${IPL}</button>`;let det='';if(open){const sel=st.sel;det=`<div class="det rise">${bigPhoto(it)}${g.map(gr=>`<div class="optg"><span class="lbl">${esc(gr.name)}</span><div class="opts">${gr.choices.map(c=>`<button class="opt ${sel[gr.id]===c.id?'on':''}" data-a="opt" data-g="${esc(gr.id)}" data-c="${esc(c.id)}">${esc(c.label)}</button>`).join('')}</div></div>`).join('')}<button class="cta" data-a="addsel" data-id="${esc(it.id)}">${IPL}<span>Añadir · ${money(priceOf(it,sel))}</span></button></div>`}return `<div class="card glass rise"><div class="itop"><button class="open" data-a="toggle" data-id="${esc(it.id)}">${photo(it)}<span class="info"><b>${esc(it.name)}</b>${it.desc?`<p>${esc(it.desc)}</p>`:''}<span class="pr"><span class="price">${money(it.price)}${it.priceMangu!=null&&it.priceMangu!==''?' / '+money(it.priceMangu):''}</span>${bdg(it.badge)}</span></span></button>${right}</div>${det}</div>`}
 function vCat(){const c=st.cat,list=catItems(c);return `<div class="scr">${beans()}<div class="hdr"><button class="icon" data-a="home" aria-label="Volver">${IB}</button><span class="sub" style="letter-spacing:.2em;text-transform:uppercase;font-size:11px">La Baristería</span></div><div class="chips">${liveCats().map(x=>`<button class="chip" style="${x===c?'background:'+CCOL[x]+';color:#0E1F1C;font-weight:500':''}" data-a="cat" data-cat="${esc(x)}">${esc(x)}</button>`).join('')}</div><h1 class="title rise">${esc(c)}</h1>${groupBy(list).map(gp=>(gp.name?`<div class="sec">${esc(gp.name)}</div>`:'')+`<div class="list">${gp.items.map(itemCard).join('')}</div>`).join('')}</div>`}
 function vCart(){const lines=st.cart.map(l=>`<div class="cl glass"><span class="ph" style="background:linear-gradient(145deg,${CCOL[l.cat]||'#5FE3C8'},rgba(14,31,28,.5))"></span><span class="ci"><b>${esc(l.name)}</b><span class="o">${esc(l.opts||'Sin extras')}</span><span class="t">${money(l.unit*l.qty)}</span></span><span class="step"><button data-a="ldec" data-k="${esc(l.key)}" aria-label="Quitar">${IMI}</button><span class="q">${l.qty}</span><button data-a="linc" data-k="${esc(l.key)}" aria-label="Añadir">${IPL}</button></span></div>`).join('');
   const del=MODO==='delivery';let form;
@@ -190,6 +235,7 @@ app.addEventListener('click',e=>{
   const b=e.target.closest('[data-a]');if(!b)return;
   const a=b.dataset.a,id=b.dataset.id,it=id?find(id):null;
   const A={
+    menu(){st.view='home';st.cat=null;st.open=null;render()},
     cat(){st.view='cat';st.cat=b.dataset.cat;st.open=null;render()},
     home(){st.view='home';st.cat=null;st.open=null;render()},
     back(){st.view=st.cat?'cat':'home';render()},
